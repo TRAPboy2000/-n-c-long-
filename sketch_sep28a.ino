@@ -2,8 +2,8 @@
 #include "SimpleKalmanFilter.h"
 #include "CircularQueue.h"
 #include <Wire.h> 
-//#include <LiquidCrystal_I2C.h>
-//LiquidCrystal_I2C lcd(0x27, 20, 4);
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 20, 4);
 uint8_t test_rgb[] = {10, 23, 45};
 #define S0 7
 #define S1 6
