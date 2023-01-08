@@ -154,7 +154,7 @@ void NhanDienMau(he_thong_phan_loai *s)
           TCS3200_getRaw(CS, r_data);
           f(r_data);
           RGB(r_data, rgb);
-          l = color_match(rgb, 3);
+          l = color_match(rgb, 5);
           Serial.println(l);
           switch(l)
           {
