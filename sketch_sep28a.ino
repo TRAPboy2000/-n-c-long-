@@ -9,6 +9,9 @@ uint8_t test_rgb[] = {10, 23, 45};
 #define S1 6
 #define S2 4
 #define S3 3
+#define rawDataTest 1
+#define RGBTest 2
+#define colorTest 3
 #define sensorOut 5
 #define xylanhXanh 9 
 #define xylanhDo 8
@@ -154,7 +157,7 @@ void NhanDienMau(he_thong_phan_loai *s)
           TCS3200_getRaw(CS, r_data);
           f(r_data);
           RGB(r_data, rgb);
-          l = color_match(rgb, 5);
+          l = color_match(rgb, 20);
           Serial.println(l);
           switch(l)
           {
@@ -185,12 +188,12 @@ void NhanDienMau(he_thong_phan_loai *s)
 }
 
 
-void test(bool test_mode)
+void test(uint8_t  test_mode)
 {
   TCS3200_getRaw(CS, r_data);
   f(r_data);
   RGB(r_data, rgb);
-  if(test_mode)
+  if(test_mode == RGBTest)
   {
     Serial.print(rgb[0]);
     Serial.print(",");
@@ -198,13 +201,17 @@ void test(bool test_mode)
     Serial.print(",");
     Serial.println(rgb[2]);
   }
-  else
+  else if(test_mode == rawDataTest) 
   {
     Serial.print(r_data[0]);
     Serial.print(",");
     Serial.print(r_data[1]);
     Serial.print(",");
     Serial.println(r_data[2]);  
+  }
+  else if()
+  {
+    Serial.println(color_match(rgb, 20));
   }
  
     
@@ -332,7 +339,6 @@ void setup()
   lcd.setCursor(5, 2);
   lcd.print(b);
 }
-
 
 void debug()
 {
